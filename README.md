@@ -30,6 +30,10 @@ Instala el módulo.
 🧩 Dependencias
 Este módulo depende de los siguientes módulos de Odoo:
 
+* [base]
+* [contacts]
+* [documents]
+
 base
 
 contacts
