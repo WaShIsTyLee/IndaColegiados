@@ -32,9 +32,9 @@ Este módulo depende de los siguientes módulos de Odoo:
 
 _Menciona las herramientas que utilizaste para crear tu proyecto_
 
-* [base](http://www.dropwizard.io/1.0.2/docs/) - El framework web usado
-* [contacts](https://maven.apache.org/) - Manejador de dependencias
-* [documents](https://rometools.github.io/rome/) - Usado para generar RSS
+* [base] - El framework web usado
+* [contacts]- Manejador de dependencias
+* [documents] - Usado para generar RSS
 
 base
 
