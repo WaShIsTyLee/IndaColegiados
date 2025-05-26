@@ -69,7 +69,7 @@ Si eres administrador de la Plataforma, podras crear grupos y gestionar el acces
 El módulo define reglas de acceso específicas para garantizar que solo los usuarios autorizados puedan ver o modificar la información de los colegiados.
 
 🧑‍💻 Autor
-## Nombre:
+### Nombre:
 [Juan Jesús López Solano]
 
 ### Email:
