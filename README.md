@@ -1,4 +1,4 @@
-#IndaColegiados
+IndaColegiados
 IndaColegiados es un módulo personalizado para Odoo que permite gestionar la información de colegiados, incluyendo datos personales, académicos, contratos en farmacias, documentos asociados y procesos relacionados, todo el modulo está relacionado con el modulo de Documentos Entrada Salida ademaás de con los modulos de Odoo: Documentos y Contactos.
 
 📦 Características
