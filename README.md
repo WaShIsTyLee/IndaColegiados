@@ -70,9 +70,10 @@ El módulo define reglas de acceso específicas para garantizar que solo los usu
 
 🧑‍💻 Autor
 ### Nombre:
-[Juan Jesús López Solano]
+Juan Jesús López Solano
 
 ### Email:
- [lopezsolanojuanjesus@gmail.com]
+lopezsolanojuanjesus@gmail.com
 
-GitHub: https://github.com/WaShIsTyLee
+### Github: 
+https://github.com/WaShIsTyLee
