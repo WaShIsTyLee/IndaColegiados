@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Vista Formulario Colegiado -->
+    <record id="view_form_colegiado" model="ir.ui.view">
+        <field name="name">colegiado.form</field>
+        <field name="model">colegiado</field>
+        <field name="arch" type="xml">
+            <form string="Colegiado">
+                <sheet>
+                    <!-- Parte superior fija -->
+                    <group col="2">
+                        <group>
+                            <field name="nombre" />
+                            <field name="estado" />
+                        </group>
+                        <group>
+                            <field name="nif" />
+                            <field name="modalidad" />
+                        </group>
+                        <group>
+                            <field name="N1Colegiado" />
+                            <field name="observaciones" />
+                            <field name="partner_id" invisible="1" />
+                            <field name="contacto_id" invisible="1" />
+
+
+                        </group>
+                    </group>
+
+
+                    <!-- Caja con pestañas estilo menú -->
+                    <div class="o_boxed_form" style="margin-top: 20px;">
+                        <notebook>
+                            <page string="🧑 Datos Personales">
+                                <group>
+                                    <field name="telefono" />
+                                    <field name="email" />
+                                    <field name="movil" />
+                                    <field name="fecha_nacimiento" />
+                                    <field name="sexo" />
+                                </group>
+                                <group>
+                                    <field name="direccion_ids"
+                                        context="{'default_colegiado_id': active_id}"
+                                        mode="tree,form">
+                                        <tree editable="bottom">
+                                            <field name="direccion" />
+                                            <field name="calle2" />
+                                            <field name="codigo_postal" />
+                                            <field name="ciudad" />
+                                            <field name="provincia" />
+                                            <field name="pais" />
+                                            <field name="es_correspondencia" />
+                                            <field name="es_fiscal" />
+                                            <field name="tipo_direccion" />
+                                        </tree>
+                                        <form>
+                                            <group>
+                                                <field name="direccion" />
+                                                <field name="calle2" />
+                                                <field name="codigo_postal" />
+                                                <field name="ciudad" />
+                                                <field name="provincia" />
+                                                <field name="pais" />
+                                            </group>
+                                            <group>
+                                                <field name="es_correspondencia" />
+                                                <field name="es_fiscal" />
+                                                <field name="tipo_direccion" />
+                                            </group>
+                                        </form>
+                                    </field>
+                                </group>
+                            </page>
+                            <page string="🎓 Datos Académicos">
+                                <group col="2">
+                                    <group>
+                                        <field name="fecha_titulo" />
+                                        <field name="numero_registro" />
+                                        <field name="numero_folio" />
+                                    </group>
+                                    <group>
+                                        <field name="universidad" />
+                                        <field name="otros_titulos" />
+                                        <field name="observaciones_academicas" />
+                                    </group>
+                                </group>
+
+                                <group>
+                                    <field name="titulo_universitario" widget="image"
+                                        class="oe_avatar"
+                                        options="{'preview_image': 'titulo_universitario'}" />
+                                </group>
+
+                                <separator string="🎓 Títulos Universitarios Adicionales" />
+                                <div class="divalert">
+                                    📎 El archivo PDF se podrá descargar una vez hayas guardado el
+                                    documento.
+                                    Después de guardar, haz clic sobre la línea correspondiente para
+                                    acceder a la descarga.
+                                </div>
+
+
+                                <field name="titulo_ids" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="titulo" />
+                                        <field name="universidad" />
+                                        <field name="fecha" />
+                                        <field name="archivo_titulo" filename="archivo_nombre" />
+                                    </tree>
+                                    <form string="Título Universitario">
+                                        <group col="2">
+                                            <field name="titulo" />
+                                            <field name="universidad" />
+                                            <field name="fecha" />
+                                            <field name="observaciones" colspan="2" />
+                                            <field name="archivo_titulo" filename="archivo_nombre" />
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+
+                            <page string="📖 Datos de Colegiado">
+                                <group col="2">
+                                    <group>
+                                        <field name="fecha_colegiacion" />
+                                        <field name="estado" />
+                                    </group>
+                                    <group>
+                                        <field name="es_bolsa_trabajo" />
+                                        <field name="es_perito" />
+                                        <field name="otro_colegio" />
+                                    </group>
+                                </group>
+                                <separator string="Contratos en Farmacias" colspan="2" />
+                                <group>
+                                    <field name="contrato_ids"
+                                        context="{'default_colegiado_id': active_id}"
+                                        mode="tree,form">
+                                        <tree editable="bottom">
+                                            <field name="nombre_farmacia" />
+                                            <field name="desde" />
+                                            <field name="hasta" />
+                                            <field name="ejerce_como" />
+                                        </tree>
+                                        <form>
+                                            <group col="2">
+                                                <field name="nombre_farmacia" />
+                                                <field name="desde" />
+                                                <field name="hasta" />
+                                            </group>
+                                            <group>
+                                                <field name="ejerce_como" />
+                                            </group>
+                                        </form>
+                                    </field>
+                                </group>
+                                <separator string="Ejercicio Laboral" colspan="2" />
+                                <group col="2">
+                                    <group>
+                                        <field name="adjunto" />
+                                        <field name="sustituto" />
+                                        <field name="administraciones_publicas" />
+                                        <field name="analista" />
+                                        <field name="cotitular" />
+                                        <field name="distribucion" />
+                                        <field name="docencia" />
+                                        <field name="industria" />
+                                    </group>
+                                    <group>
+                                        <field name="hospital" />
+                                        <field name="optico" />
+                                        <field name="ortopedia" />
+                                        <field name="titular" />
+                                        <field name="otras_actividades" />
+                                        <field name="regente" />
+                                        <field name="facultativo" />
+                                    </group>
+                                </group>
+
+                                <separator string="Vocalías" colspan="2" />
+                                <group col="2">
+                                    <group>
+                                        <field name="dermofarmacia" />
+                                        <field name="oficina_farmacia" />
+                                        <field name="ortopedia" />
+                                        <field name="alimentacion" />
+                                        <field name="doc_investigacion" />
+                                        <field name="optica" />
+                                    </group>
+                                    <group>
+                                        <field name="analisis" />
+                                        <field name="admin_publica" />
+                                        <field name="hospital" />
+                                        <field name="distribucion" />
+                                        <field name="industria" />
+                                        <field name="formulacion_magistral" />
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="📎 Documentos y Procesos">
+
+                                <separator string="Documentos PDF" colspan="4" />
+                                <field name="documento_ids" mode="tree,form"
+                                    context="{'default_colegiado_id': active_id}">
+                                    <tree editable="bottom">
+                                        <field name="nombre" readonly="1" />
+                                        <field name="fecha" />
+                                        <field name="documento" filename="nombre" />
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <field name="nombre" readonly="1" />
+                                            <field name="fecha" />
+                                            <field name="documento" filename="nombre" />
+                                        </group>
+                                    </form>
+                                </field>
+
+                                <separator string="Procesos Documentales" colspan="4" />
+                                <field name="procesos_ids" mode="tree,form"
+                                    context="{'default_colegiado_id': active_id}">
+                                    <tree editable="bottom">
+                                        <field name="expediente" />
+                                        <field name="denominacion" />
+                                        <field name="asunto" />
+                                        <field name="estado" />
+                                        <field name="nombre" readonly="1" />
+                                        <field name="fecha" />
+                                        <field name="documento" filename="nombre" />
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <field name="expediente" />
+                                            <field name="denominacion" />
+                                            <field name="asunto" />
+                                            <field name="estado" />
+                                            <field name="nombre" readonly="1" />
+                                            <field name="fecha" />
+                                            <field name="documento" filename="nombre" />
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+
+
+                            <page string=" Otros">
+                                <group>
+                                    <field name="observaciones" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </div>
+
+                    <!-- Botón PDF -->
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_print_colegiado_pdf"
+                            string="Descargar PDF"
+                            type="object"
+                            class="btn btn-primary"
+                            icon="fa-download" />
+                        <button name="open_documentos_asociados"
+                            icon="fa-files-o"
+                            type="object"
+                            string="Documentos Entrada/Salida Asociados"
+                            class="oe_stat_button">
+                            <field name="documento_entrada_salida_count" widget="statinfo" />
+                        </button>
+
+                        <button name="action_open_odoo_documents"
+                            type="object"
+                            string="Documentos Asociados"
+                            icon="fa-file-text"
+                            class="oe_stat_button">
+                            <field name="documento_odoo_count" widget="statinfo" />
+                        </button>
+
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista Lista Colegiado -->
+    <record id="view_tree_colegiado" model="ir.ui.view">
+        <field name="name">colegiado.tree</field>
+        <field name="model">colegiado</field>
+        <field name="arch" type="xml">
+            <tree string="Colegiados">
+                <field name="nombre" />
+                <field name="telefono" />
+                <field name="direccion" />
+                <field name="email" />
+                <field name="nif" />
+                <field name="N1Colegiado" />
+                <field name="estado" />
+                <field name="modalidad" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista Kanban Colegiado con avatar de res.partner -->
+    <record id="view_kanban_colegiado" model="ir.ui.view">
+        <field name="name">colegiado.kanban</field>
+        <field name="model">colegiado</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="partner_id" />
+                <field name="nombre" />
+                <field name="N1Colegiado" />
+                <field name="telefono" />
+                <field name="estado" />
+                <field name="modalidad" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_card d-flex">
+                            <div class="o_kanban_image_fill_left d-none d-md-block"
+                                style="margin-right: 10px;">
+                                <img
+                                    t-attf-src="#{kanban_image('res.partner', 'avatar_128', record.partner_id.raw_value)}"
+                                    t-att-alt="record.partner_id.value"
+                                    class="img img-fluid rounded-circle" />
+                            </div>
+                            <div class="o_kanban_details">
+                                <ul style="padding-left: 0; list-style: none;">
+                                    <li>
+                                        <strong>Nombre y Apellidos: </strong>
+                                        <field name="nombre" />
+                                    </li>
+                                    <li>
+                                        <strong>Colegiado: </strong>
+                                        <field name="N1Colegiado" />
+                                    </li>
+                                    <li>
+                                        <strong>Tel: </strong>
+                                        <field name="telefono" />
+                                    </li>
+                                    <li>
+                                        <strong>Estado: </strong>
+                                        <field name="estado" />
+                                    </li>
+                                    <li>
+                                        <strong>Modalidad: </strong>
+                                        <field name="modalidad" />
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Vista Tree para Dirección -->
+    <record id="view_tree_colegiado_direccion" model="ir.ui.view">
+        <field name="name">colegiado.direccion.tree</field>
+        <field name="model">colegiado.direccion</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="direccion" />
+                <field name="calle2" />
+                <field name="codigo_postal" />
+                <field name="ciudad" />
+                <field name="provincia" />
+                <field name="pais" />
+                <field name="es_correspondencia" />
+                <field name="es_fiscal" />
+                <field name="tipo_direccion" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista Form para Dirección -->
+    <record id="view_form_colegiado_direccion" model="ir.ui.view">
+        <field name="name">colegiado.direccion.form</field>
+        <field name="model">colegiado.direccion</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="direccion" />
+                    <field name="calle2" />
+                    <field name="codigo_postal" />
+                    <field name="ciudad" />
+                    <field name="provincia" />
+                    <field name="pais" />
+                </group>
+                <group>
+                    <field name="es_correspondencia" />
+                    <field name="es_fiscal" />
+                    <field name="tipo_direccion" />
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Acción principal -->
+    <record id="action_colegiados_main" model="ir.actions.act_window">
+        <field name="name">Colegiados</field>
+        <field name="res_model">colegiado</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Crea tu primer colegiado</p>
+        </field>
+    </record>
+
+    <!-- Menú principal -->
+    <menuitem id="menu_colegiados_root"
+        name="Colegios"
+        sequence="10"
+        web_icon="colegiados_inda,static/description/icono.png" />
+
+    <!-- Submenú -->
+    <menuitem id="menu_colegiados"
+        name="Listado de Colegiados"
+        parent="menu_colegiados_root"
+        action="action_colegiados_main"
+        sequence="20" />
+</odoo>

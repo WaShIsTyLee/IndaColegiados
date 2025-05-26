@@ -1,0 +1,13 @@
+<odoo>
+    <!-- Definición del Reporte -->
+    <record id="report_colegiado_pdf_action" model="ir.actions.report">
+        <field name="name">Ficha Colegiado</field>
+        <field name="model">colegiado</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">colegiados_inda.report_colegiado_pdf_template</field> 
+        <field name="report_file">colegiados_inda.report_colegiado_pdf_template</field> 
+        <field name="print_report_name">'Ficha_Colegiado_' + object.nombre</field>
+        <field name="binding_model_id" ref="colegiados_inda.model_colegiado"/> 
+        <field name="binding_type">report</field> 
+    </record>
+</odoo>

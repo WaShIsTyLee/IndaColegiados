@@ -1,0 +1,64 @@
+<odoo>
+    <template id="report_colegiado_pdf_template">
+        <t t-call="web.basic_layout">
+            <div class="page" style="padding: 24px; font-family: 'Lato', sans-serif; color: #333;">
+
+                <!-- Título principal -->
+                <h2 style="text-align: center; font-size: 26px; color: #004080; margin-bottom: 30px;">
+                    Ficha del Colegiado
+                </h2>
+
+                <!-- Datos personales -->
+                <h4 style="border-bottom: 1px solid #ccc; color: #004080;">Datos Personales</h4>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Nombre:</strong> <span t-esc="docs[0].nombre"/></p>
+                    <p><strong>NIF:</strong> <span t-esc="docs[0].nif"/></p>
+                    <p><strong>Teléfono:</strong> <span t-esc="docs[0].telefono"/></p>
+                    <p><strong>Móvil:</strong> <span t-esc="docs[0].movil"/></p>
+                    <p><strong>Email:</strong> <span t-esc="docs[0].email"/></p>
+                    <p><strong>Fecha de Nacimiento:</strong> <span t-esc="docs[0].fecha_nacimiento"/></p>
+                </div>
+
+                <!-- Dirección -->
+                <h4 style="border-bottom: 1px solid #ccc; color: #004080;">Dirección</h4>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Calle:</strong> <span t-esc="docs[0].direccion"/></p>
+                    <p><strong>Calle 2:</strong> <span t-esc="docs[0].calle2"/></p>
+                    <p><strong>Código Postal:</strong> <span t-esc="docs[0].codigo_postal"/></p>
+                    <p><strong>Ciudad:</strong> <span t-esc="docs[0].ciudad"/></p>
+                    <p><strong>Provincia:</strong> <span t-esc="docs[0].provincia.name"/></p>
+                    <p><strong>País:</strong> <span t-esc="docs[0].pais.name"/></p>
+                </div>
+
+                <!-- Información colegiado -->
+                <h4 style="border-bottom: 1px solid #ccc; color: #004080;">Datos del Colegio</h4>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Número Colegiado:</strong> <span t-esc="docs[0].N1Colegiado"/></p>
+                    <p><strong>Estado:</strong>
+                        <span t-esc="dict({'alta': 'Alta', 'baja': 'Baja'}).get(docs[0].estado, '')"/>
+                    </p>
+                    <p><strong>Modalidad:</strong>
+                        <span t-esc="dict({'ejerciente': 'Ejerciente', 'desempleado': 'Desempleado'}).get(docs[0].modalidad, '')"/>
+                    </p>
+                    <p><strong>Fecha Colegiación:</strong> <span t-esc="docs[0].fecha_colegiacion"/></p>
+                </div>
+
+                <!-- Observaciones -->
+                <h4 style="border-bottom: 1px solid #ccc; color: #004080;">Observaciones</h4>
+                <div style="margin-bottom: 15px;">
+                    <p><span t-esc="docs[0].observaciones or 'Sin observaciones registradas.'"/></p>
+                </div>
+
+                <!-- Imagen del título -->
+                <t t-if="docs[0].titulo_universitario">
+                    <div style="margin-top: 40px; text-align: center;">
+                        <h4 style="color: #004080;">Título Universitario</h4>
+                        <img t-att-src="'data:image/png;base64,' + docs[0].titulo_universitario.decode('utf-8')"
+                             style="max-width: 80%; border: 1px solid #aaa; padding: 4px; margin-top: 10px;" />
+                    </div>
+                </t>
+
+            </div>
+        </t>
+    </template>
+</odoo>

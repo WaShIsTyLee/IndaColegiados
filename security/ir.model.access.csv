@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_colegiado_user,access_colegiado_user,model_colegiado,base.group_user,1,1,1,1
+access_colegiado_direccion_user,access_colegiado_direccion_user,model_colegiado_direccion,base.group_user,1,1,1,1
+access_contrato_farmacia_user,access_contrato_farmacia_user,model_colegiado_contrato_farmacia,base.group_user,1,1,1,1
+access_colegiado_documento_user,access_colegiado_documento_user,model_colegiado_documento,base.group_user,1,1,1,1
+access_colegiado_procesos_user,access_colegiado_procesos_user,model_colegiado_procesos,base.group_user,1,1,1,1
+access_colegiado_titulo_user,access_colegiado_titulo_user,model_colegiado_titulo,base.group_user,1,1,1,1
+
