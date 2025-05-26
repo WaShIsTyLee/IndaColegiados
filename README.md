@@ -13,9 +13,12 @@ Generación de informes PDF personalizados para cada colegiado.
 Control de accesos mediante reglas de seguridad definidas.
 
 🛠️ Instalación
-Clona este repositorio en tu carpeta de addons de Odoo:
 
+Clona este repositorio en tu carpeta de addons de Odoo:
+```
 git clone https://github.com/WaShIsTyLee/IndaColegiados.git
+```
+
 Reinicia el servidor de Odoo para que detecte el nuevo módulo.
 
 Activa el modo desarrollador en Odoo.
