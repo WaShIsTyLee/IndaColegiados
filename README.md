@@ -15,9 +15,6 @@ Control de accesos mediante reglas de seguridad definidas.
 **🛠️ Instalación
 Clona este repositorio en tu carpeta de addons de Odoo:
 
-bash
-Copiar
-Editar
 git clone https://github.com/WaShIsTyLee/IndaColegiados.git
 Reinicia el servidor de Odoo para que detecte el nuevo módulo.**
 
