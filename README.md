@@ -33,7 +33,7 @@ contacts
 
 documents
 
-Asegúrate de que estos módulos estén instalados antes de instalar IndaColegiados.
+Asegúrate de que estos módulos, los cuales se activan automaticamente, verifica si se han activado.
 
 📁 Estructura del Repositorio
 models/: Contiene los modelos de datos personalizados (colegiado, colegiado.direccion, etc.).
